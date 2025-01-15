@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Resumes Project.");
+        Job job1 = new Job();
+        Job job2 = new Job();
+
+        Resume resume = new Resume();
+        
     }
 }
