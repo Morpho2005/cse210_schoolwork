@@ -31,12 +31,12 @@ public class Journal {
         Console.Write("What is the file name? ");
         string fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(fileName);
-        List<Entry> _oldEntries = new List<Entry>();
+        List<Entry> oldEntries = new List<Entry>();
         foreach (string line in lines){
-            Entry _entry = new Entry();
-            _entry._entryText = line;
-            _oldEntries.Add(_entry);
+            Entry entry = new Entry();
+            entry._entryText = line;
+            oldEntries.Add(entry);
         }
-        _entries = _oldEntries;
+        _entries = oldEntries;
     }
 }
