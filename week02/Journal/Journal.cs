@@ -30,7 +30,7 @@ public class Journal {
     public void LoadFromFile(){
         Console.Write("What is the file name? ");
         string fileName = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(fileName);
+        string[] lines = File.ReadAllLines(fileName);
         List<Entry> oldEntries = new List<Entry>();
         foreach (string line in lines){
             Entry entry = new Entry();
