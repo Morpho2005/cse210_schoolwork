@@ -1,0 +1,59 @@
+
+
+
+Class Program
+scripture = new Scripture()
+string input
+
+scripture.Display()
+while input != "quit"
+if scripture.IsAllHidden() = true
+input = "quit"
+else
+scripture.HideRandom
+clearcosole
+scripture.Display()
+
+Class Scripture
+
+_scripture: list<Word>()
+_reference: Reference()
+
+Methods
+
+HideRandom(numberToHide : int) : void
+IsAllHidden() : Bool
+GetDisplayText() : string
+Display() : void
+
+
+Class Reference
+
+_reference: string
+
+Methods
+GetReference(): string
+
+constructors
+
+(string book, int chapter, int verse)
+_reference = $"{book} {chapter}:{verse}"
+(string book, int chapter, int start_verse, int end_verse)
+_reference = $"{book} {chapter}:{start_verse}-{end_verse}"
+
+
+Class Word
+
+_text: string
+_isHidden: bool
+
+constructors
+word(string word)
+
+Methods:
+
+Hide() : void
+Show() : void
+IsHidden() : bool
+Display() : void
+GetDisplayText() : string

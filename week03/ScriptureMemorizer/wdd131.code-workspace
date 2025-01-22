@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../wdd131"
+		},
+		{
+			"name": "cse210_schoolwork",
+			"path": "../.."
+		},
+		{
+			"path": "../../../wdd130"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "wdd131"
+	}
+}
