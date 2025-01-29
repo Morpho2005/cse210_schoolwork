@@ -11,4 +11,7 @@ class Video{
     public void AddComment(string author, string comment){
         _comments.Add(new Comment(author, comment));
     }
+    public string GetVideoStats(){
+        return $"{_title}, made by {_author}, {_seconds} seconds, {_comments.Count} comments";
+    }
 }
