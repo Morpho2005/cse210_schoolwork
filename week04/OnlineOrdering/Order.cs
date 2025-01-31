@@ -2,6 +2,10 @@ public class Order{
     List<Product> _products = new List<Product>();
     Customer _customer;
 
+    public Order(Customer customer){
+        _customer = customer;
+    }
+
     public void AddProduct(string name, string productId, float price, int quantity){
         Product product = new Product(name, productId, price, quantity);
         _products.Add(product);
@@ -23,12 +27,12 @@ public class Order{
     public string GetPackingLabel(){
         string label = "";
         foreach (Product p in _products){
-            label = $"{label}{p.GetName}, {p.GetId}; ";
+            label = $"{label}{p.GetName()}, {p.GetId()}; ";
         }
         return label;
     }
 
     public string GetShippingLabel(){
-        return $"{_customer.GetName}, {_customer.GetAddress}";
+        return $"{_customer.GetName()}, {_customer.GetAddress()}";
     }
 }
