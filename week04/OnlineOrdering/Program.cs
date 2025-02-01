@@ -4,14 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Address address = new Address("e 31st st", "New york city", "NY", "USA");
-        Address address1 = new Address("s 21st st", "Tokyo", "Kanto", "Japan");
-
-        Customer customer = new Customer("John", address);
-        Customer customer1 = new Customer("San", address1);
-
-        Order order = new Order(customer);
-        Order order1 = new Order(customer1);
+        Order order = new Order(new Customer("John", new Address("e 31st st", "New york city", "NY", "USA")));
+        Order order1 = new Order(new Customer("San", new Address("s 21st st", "Tokyo", "Kanto", "Japan")));
 
         order.AddProduct("Apple", "APL", 3, 10);
         order.AddProduct("Chicken", "CKN", 15, 2);
