@@ -3,9 +3,8 @@ class Activity{
     string _description;
     int _duration;
 
-    public Activity(string name, string description, int duration){
+    public Activity(string name, string description){
         _name = name;
-        _duration = duration;
         _description = description;
     }
 
@@ -17,9 +16,10 @@ class Activity{
     }
 
     public void DisplayEndingMessage(){
-        Console.WriteLine("Well Done!");
-        Console.WriteLine("");
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}");
+        Console.WriteLine("Well Done!\n");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.\n");
+        Console.Write("How long, in seconds, would you like for your session? ");
+        _duration = int.Parse(Console.ReadLine());
     }
 
     public void ShowSpinner(int seconds){
@@ -54,5 +54,9 @@ class Activity{
             Console.Write("\b \b");
         }
         Console.WriteLine("");
+    }
+
+    public int GetDuration(){
+        return _duration;
     }
 }

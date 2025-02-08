@@ -2,7 +2,7 @@ class ReflectionActivity : Activity{
     List<string> _prompts = new List<string>();
     List<string> _questions = new List<string>();
 
-    public ReflectionActivity(int duration) : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. this will help you recognize the power you have and how you can use it in other aspects of your life.", duration){}
+    public ReflectionActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. this will help you recognize the power you have and how you can use it in other aspects of your life."){}
 
     public void Run(){
 
