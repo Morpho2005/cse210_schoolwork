@@ -10,25 +10,23 @@ class Activity{
 
     public void DisplayStartingMessage(){
         Console.WriteLine($"Welcome to the {_name}.");
-        Console.WriteLine("");
+        Console.WriteLine();
         Console.WriteLine(_description);
-        Console.WriteLine("");
+        Console.Write("\nHow long, in seconds, would you like for your session? ");
+        _duration = int.Parse(Console.ReadLine());
     }
 
     public void DisplayEndingMessage(){
         Console.WriteLine("Well Done!\n");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.\n");
-        Console.Write("How long, in seconds, would you like for your session? ");
-        _duration = int.Parse(Console.ReadLine());
     }
 
     public void ShowSpinner(int seconds){
         string spinner = "|";
-        Console.Write(spinner);
-        Console.Write("\b \b");
-        while(seconds>0){
+        for (int i=0;i<seconds;i++){
+            Console.Write(spinner);
             Thread.Sleep(1000);
-            seconds--;
+            Console.Write("\b \b");
             if (spinner == "|"){
                 spinner = "/";
             } else if (spinner == "/"){
@@ -38,20 +36,16 @@ class Activity{
             } else {
                 spinner = "|";
             }
-            Console.Write(spinner);
-            Console.Write("\b \b");
         }
         Console.WriteLine("");
     }
 
     public void ShowCountdown(int seconds){
-        Console.Write(seconds);
-        Console.Write("\b \b");
         while(seconds>0){
-            Thread.Sleep(1000);
-            seconds--;
             Console.Write(seconds);
+            Thread.Sleep(1000);
             Console.Write("\b \b");
+            seconds--;
         }
         Console.WriteLine("");
     }
