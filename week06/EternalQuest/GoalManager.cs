@@ -11,7 +11,8 @@ public class GoalManager{
     }
 
     public void DisplayPlayerInfo(){
-
+        Console.WriteLine($"number of goals:{_goals.Count}");
+        Console.WriteLine($"Current score: {_score}");
     }
 
     public void ListGoalNames(){
