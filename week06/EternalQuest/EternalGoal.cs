@@ -9,7 +9,7 @@ public class EternalGoal : Goal{
         Console.WriteLine($"{_description}");
         Console.Write("have you completed this task? (y or n) ");
         _answer = Console.ReadLine();
-        while (_answer != "n" || _answer != "y"){
+        while (_answer.ToLower() != "n" || _answer.ToLower() != "y"){
             Console.Write("invalid input");
             _answer = Console.ReadLine();
         }
@@ -17,7 +17,7 @@ public class EternalGoal : Goal{
 
     public override bool IsComplete()
     {
-        if (_answer == "y"){
+        if (_answer.ToLower() == "y"){
             _answer = "n";
             return true;
         } else {

@@ -12,16 +12,12 @@ public class SimpleGoal : Goal{
         Console.WriteLine($"{_description}");
         Console.Write("have you completed this task? (y or n) ");
         string answer = Console.ReadLine();
+        while (answer != "n" || answer != "y"){
+            Console.Write("invalid input");
+            answer = Console.ReadLine();
+        }
         if (answer == "y"){
             _isComplete = true;
-        } else if (answer != "n"){
-            while (answer != "n" || answer != "y"){
-                Console.Write("invalid input");
-                answer = Console.ReadLine();
-            }
-            if (answer == "y"){
-                _isComplete = true;
-            }
         }
     }
 

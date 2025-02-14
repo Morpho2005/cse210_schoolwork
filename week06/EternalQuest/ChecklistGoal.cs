@@ -15,16 +15,12 @@ public class ChecklistGoal : Goal{
         Console.WriteLine($"{_description}");
         Console.Write("have you completed this task? (y or n) ");
         string answer = Console.ReadLine();
+        while (answer != "n" || answer != "y"){
+            Console.Write("invalid input");
+            answer = Console.ReadLine();
+        }
         if (answer == "y"){
             _amountCompleted += 1;
-        } else if (answer != "n"){
-            while (answer != "n" || answer != "y"){
-                Console.Write("invalid input");
-                answer = Console.ReadLine();
-            }
-            if (answer == "y"){
-                _amountCompleted += 1;
-            }
         }
     }
 
