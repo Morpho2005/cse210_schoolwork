@@ -26,7 +26,6 @@ public class ChecklistGoal : Goal{
                 _amountCompleted += 1;
             }
         }
-        throw new NotImplementedException();
     }
 
     public override bool IsComplete()
@@ -36,13 +35,11 @@ public class ChecklistGoal : Goal{
         } else {
             return false;
         }
-        throw new NotImplementedException();
     }
 
     public override string GetStringRepresentation()
     {
         return $"name: {_shortName},description: {_description},points: {_points},target: {_target},amountCompleted: {_amountCompleted},bonus: {_bonus}";
-        throw new NotImplementedException();
     }
 
     public override string GetDetailsString(){

@@ -23,13 +23,11 @@ public class SimpleGoal : Goal{
                 _isComplete = true;
             }
         }
-        throw new NotImplementedException();
     }
 
     public override bool IsComplete()
     {
         return _isComplete;
-        throw new NotImplementedException();
     }
 
     public override string GetStringRepresentation()
@@ -41,6 +39,5 @@ public class SimpleGoal : Goal{
             comeplete = "n";
         }
         return $"name: {_shortName},description: {_description},points: {_points},complete: {comeplete}";
-        throw new NotImplementedException();
     }
 }

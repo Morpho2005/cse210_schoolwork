@@ -1,5 +1,6 @@
 public class EternalGoal : Goal{
-    
+    string _answer;
+
     public EternalGoal(string name, string description, int points) : base(name, description, points){
     }
 
@@ -7,21 +8,25 @@ public class EternalGoal : Goal{
     {
         Console.WriteLine($"{_description}");
         Console.Write("have you completed this task? (y or n) ");
-        string answer = Console.ReadLine();
-        if (answer == "y"){
-
+        _answer = Console.ReadLine();
+        while (_answer != "n" || _answer != "y"){
+            Console.Write("invalid input");
+            _answer = Console.ReadLine();
         }
-        throw new NotImplementedException();
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_answer == "y"){
+            _answer = "n";
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public override string GetStringRepresentation()
     {
         return $"name: {_shortName},description: {_description},points: {_points}";
-        throw new NotImplementedException();
     }
 }
