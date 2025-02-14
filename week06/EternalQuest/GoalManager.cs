@@ -59,6 +59,21 @@ public class GoalManager{
             int points = int.Parse(Console.ReadLine());
             EternalGoal eternal = new EternalGoal(name, description, points);
             _goals.Add(eternal);
+        } else if(choice == "c"){
+            Console.Clear();
+            Console.WriteLine("Creating Eternal Task");
+            Console.Write("What is the Goals Name? ");
+            string name = Console.ReadLine();
+            Console.Write("Provide a description of the Goal: ");
+            string description = Console.ReadLine();
+            Console.Write("How many points is the Goal worth? ");
+            int points = int.Parse(Console.ReadLine());
+            Console.Write("How many times must the Goal be comepleted? ");
+            int target = int.Parse(Console.ReadLine());
+            Console.Write("What is the Bonus for comepleting all the tasks? ");
+            int bonus = int.Parse(Console.ReadLine());
+            ChecklistGoal checklist = new ChecklistGoal(name, description, points, target, bonus);
+            _goals.Add(checklist);
         }
     }
 
