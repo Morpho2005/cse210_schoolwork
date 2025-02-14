@@ -7,7 +7,7 @@ public class GoalManager{
     }
 
     public void Start(){
-
+        
     }
 
     public void DisplayPlayerInfo(){
@@ -97,6 +97,7 @@ public class GoalManager{
             foreach (Goal g in _goals){
                 outputFile.WriteLine(g.GetStringRepresentation());
             }
+            outputFile.WriteLine($"score:{_score}");
             Console.WriteLine("saving to file...");
         }
     }
@@ -137,6 +138,8 @@ public class GoalManager{
                 ChecklistGoal goal = new ChecklistGoal(name, description, points, target, bonus);
                 goal._amountCompleted=amountCompleted;
                 oldGoals.Add(goal);
+            } else if (vars.Length==1){
+                _score = int.Parse(vars[1].Split(':')[2]);
             }
         }
         _goals = oldGoals;
