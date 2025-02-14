@@ -5,6 +5,12 @@ public class EternalGoal : Goal{
 
     public override void RecordEvent()
     {
+        Console.WriteLine($"{_description}");
+        Console.Write("have you completed this task? (y or n) ");
+        string answer = Console.ReadLine();
+        if (answer == "y"){
+
+        }
         throw new NotImplementedException();
     }
 
@@ -15,6 +21,7 @@ public class EternalGoal : Goal{
 
     public override string GetStringRepresentation()
     {
+        return $"name: {_shortName},description: {_description},points: {_points}";
         throw new NotImplementedException();
     }
 }

@@ -12,16 +12,36 @@ public class ChecklistGoal : Goal{
 
     public override void RecordEvent()
     {
+        Console.WriteLine($"{_description}");
+        Console.Write("have you completed this task? (y or n) ");
+        string answer = Console.ReadLine();
+        if (answer == "y"){
+            _amountCompleted += 1;
+        } else if (answer != "n"){
+            while (answer != "n" || answer != "y"){
+                Console.Write("invalid input");
+                answer = Console.ReadLine();
+            }
+            if (answer == "y"){
+                _amountCompleted += 1;
+            }
+        }
         throw new NotImplementedException();
     }
 
     public override bool IsComplete()
     {
+        if (_amountCompleted == _target){
+            return true;
+        } else {
+            return false;
+        }
         throw new NotImplementedException();
     }
 
     public override string GetStringRepresentation()
     {
+        return $"name: {_shortName},description: {_description},points: {_points},target: {_target},amountCompleted: {_amountCompleted},bonus: {_bonus}";
         throw new NotImplementedException();
     }
 
