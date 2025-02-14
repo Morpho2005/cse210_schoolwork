@@ -1,7 +1,7 @@
 using System.Drawing;
 
 public class SimpleGoal : Goal{
-    public bool _isComplete;
+    internal bool _isComplete;
 
     public SimpleGoal(string name, string description, int points) : base(name, description, points){
        _isComplete=false;
@@ -34,6 +34,6 @@ public class SimpleGoal : Goal{
         } else {
             comeplete = "n";
         }
-        return $"name: {_shortName},description: {_description},points: {_points},complete: {comeplete}";
+        return $"name:{_shortName},description:{_description},points:{_points},complete:{comeplete}";
     }
 }

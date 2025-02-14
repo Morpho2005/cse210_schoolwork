@@ -90,10 +90,55 @@ public class GoalManager{
     }
 
     public void SaveGoals(){
-
+        Console.Write("What do you want the file name to be? ");
+        string fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {   
+            foreach (Goal g in _goals){
+                outputFile.WriteLine(g.GetStringRepresentation());
+            }
+            Console.WriteLine("saving to file...");
+        }
     }
 
     public void LoadGoals(){
-
+        
+        Console.Write("What is the file name? ");
+        string fileName = Console.ReadLine();
+        string[] lines = File.ReadAllLines(fileName);
+        List<Goal> oldGoals = new List<Goal>();
+        foreach (string line in lines){
+            string[] vars = line.Split(',');
+            if (vars.Length==4){
+                string name = vars[1].Split(':')[2];
+                string description = vars[2].Split(':')[2];
+                int points = int.Parse(vars[3].Split(':')[2]);
+                string comeplete = vars[4].Split(':')[2];
+                SimpleGoal goal = new SimpleGoal(name, description, points);
+                if (comeplete=="y"){
+                    goal._isComplete=true;
+                } else {
+                    goal._isComplete=false;
+                }
+                oldGoals.Add(goal);
+            } else if (vars.Length==3){
+                string name = vars[1].Split(':')[2];
+                string description = vars[2].Split(':')[2];
+                int points = int.Parse(vars[3].Split(':')[2]);
+                EternalGoal goal = new EternalGoal(name, description, points);
+                oldGoals.Add(goal);
+            } else if (vars.Length==6){
+                string name = vars[1].Split(':')[2];
+                string description = vars[2].Split(':')[2];
+                int points = int.Parse(vars[3].Split(':')[2]);
+                int target = int.Parse(vars[4].Split(':')[2]);
+                int amountCompleted = int.Parse(vars[5].Split(':')[2]);
+                int bonus = int.Parse(vars[6].Split(':')[2]);
+                ChecklistGoal goal = new ChecklistGoal(name, description, points, target, bonus);
+                goal._amountCompleted=amountCompleted;
+                oldGoals.Add(goal);
+            }
+        }
+        _goals = oldGoals;
     }
 }
