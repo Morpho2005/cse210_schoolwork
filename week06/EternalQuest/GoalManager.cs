@@ -15,11 +15,15 @@ public class GoalManager{
     }
 
     public void ListGoalNames(){
-
+        foreach (Goal g in _goals){
+            Console.WriteLine(g._shortName);
+        }
     }
 
     public void ListGoalDetails(){
-
+        foreach (Goal g in _goals){
+            Console.WriteLine(g.GetDetailsString());
+        }
     }
 
     public void CreateGoals(){
@@ -78,7 +82,11 @@ public class GoalManager{
     }
 
     public void RecordEvent(){
-
+        foreach (Goal g in _goals){
+            if (!g.IsComplete()){
+                g.RecordEvent();
+            }
+        }
     }
 
     public void SaveGoals(){
