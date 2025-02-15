@@ -1,0 +1,4 @@
+name:apply,description:Apply for a job,points:100,complete:y
+name:program,description:spend at least 1 hour programming,points:50
+name:eat,description:consume a full meal,points:10,target:3,amountCompleted:3,bonus:20
+score:300

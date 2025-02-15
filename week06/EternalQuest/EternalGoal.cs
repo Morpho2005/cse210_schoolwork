@@ -7,7 +7,6 @@ public class EternalGoal : Goal{
 
     public override void RecordEvent()
     {
-        Console.Clear();
         Console.WriteLine($"{GetDetailsString()}");
         Console.Write("have you completed this task? (y or n) ");
         _answer = Console.ReadLine();
@@ -20,7 +19,7 @@ public class EternalGoal : Goal{
     public override bool IsComplete()
     {
         if (_answer.ToLower() == "y"){
-            _answer = "n";
+            _answer = "";
             return true;
         } else {
             return false;

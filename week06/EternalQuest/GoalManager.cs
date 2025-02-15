@@ -110,13 +110,14 @@ public class GoalManager{
     }
 
     public void RecordEvent(){
+        Console.Clear();
         foreach (Goal g in _goals){
             if (!g.IsComplete()){
                 g.RecordEvent();
                 string[] vars = g.GetStringRepresentation().Split(',');
                 if (vars.Length == 6){
                     if (g.IsComplete()){
-                        _score += int.Parse(vars[6].Split(':')[2]);
+                        _score += int.Parse(vars[5].Split(':')[1]);
                     }
                     _score += g._points;
                 } else {
@@ -148,10 +149,10 @@ public class GoalManager{
         foreach (string line in lines){
             string[] vars = line.Split(',');
             if (vars.Length==4){
-                string name = vars[1].Split(':')[2];
-                string description = vars[2].Split(':')[2];
-                int points = int.Parse(vars[3].Split(':')[2]);
-                string comeplete = vars[4].Split(':')[2];
+                string name = vars[0].Split(':')[1];
+                string description = vars[1].Split(':')[1];
+                int points = int.Parse(vars[2].Split(':')[1]);
+                string comeplete = vars[3].Split(':')[1];
                 SimpleGoal goal = new SimpleGoal(name, description, points);
                 if (comeplete=="y"){
                     goal._isComplete=true;
@@ -160,23 +161,23 @@ public class GoalManager{
                 }
                 oldGoals.Add(goal);
             } else if (vars.Length==3){
-                string name = vars[1].Split(':')[2];
-                string description = vars[2].Split(':')[2];
-                int points = int.Parse(vars[3].Split(':')[2]);
+                string name = vars[0].Split(':')[1];
+                string description = vars[1].Split(':')[1];
+                int points = int.Parse(vars[2].Split(':')[1]);
                 EternalGoal goal = new EternalGoal(name, description, points);
                 oldGoals.Add(goal);
             } else if (vars.Length==6){
-                string name = vars[1].Split(':')[2];
-                string description = vars[2].Split(':')[2];
-                int points = int.Parse(vars[3].Split(':')[2]);
-                int target = int.Parse(vars[4].Split(':')[2]);
-                int amountCompleted = int.Parse(vars[5].Split(':')[2]);
-                int bonus = int.Parse(vars[6].Split(':')[2]);
+                string name = vars[0].Split(':')[1];
+                string description = vars[1].Split(':')[1];
+                int points = int.Parse(vars[2].Split(':')[1]);
+                int target = int.Parse(vars[3].Split(':')[1]);
+                int amountCompleted = int.Parse(vars[4].Split(':')[1]);
+                int bonus = int.Parse(vars[5].Split(':')[1]);
                 ChecklistGoal goal = new ChecklistGoal(name, description, points, target, bonus);
                 goal._amountCompleted=amountCompleted;
                 oldGoals.Add(goal);
             } else if (vars.Length==1){
-                _score = int.Parse(vars[1].Split(':')[2]);
+                _score = int.Parse(vars[0].Split(':')[1]);
             }
         }
         _goals = oldGoals;
