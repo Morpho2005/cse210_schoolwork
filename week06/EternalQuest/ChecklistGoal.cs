@@ -12,10 +12,10 @@ public class ChecklistGoal : Goal{
 
     public override void RecordEvent()
     {
-        Console.WriteLine($"{_description}");
+        Console.WriteLine($"{GetDetailsString()}");
         Console.Write("have you completed this task? (y or n) ");
         string answer = Console.ReadLine();
-        while (answer != "n" || answer != "y"){
+        while (answer != "n" & answer != "y"){
             Console.Write("invalid input");
             answer = Console.ReadLine();
         }
@@ -42,7 +42,6 @@ public class ChecklistGoal : Goal{
     }
 
     public override string GetDetailsString(){
-        string checkbox = $"comepleted {_amountCompleted}/{_target} times";
-        return $"{_shortName} {_description} {checkbox}";
+        return $"{_shortName} {_description} comepleted {_amountCompleted}/{_target} times";
     }
 }

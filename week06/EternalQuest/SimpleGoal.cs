@@ -9,10 +9,10 @@ public class SimpleGoal : Goal{
 
     public override void RecordEvent()
     {
-        Console.WriteLine($"{_description}");
+        Console.WriteLine($"{GetDetailsString()}");
         Console.Write("have you completed this task? (y or n) ");
         string answer = Console.ReadLine();
-        while (answer != "n" || answer != "y"){
+        while (answer != "n" & answer != "y"){
             Console.Write("invalid input");
             answer = Console.ReadLine();
         }
